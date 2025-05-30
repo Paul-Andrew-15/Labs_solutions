@@ -27,7 +27,7 @@ def generate_image(
 
     vertexai.init(project=project_id, location=location)
 
-    model = ImageGenerationModel.from_pretrained("imagegeneration@002")
+    model = ImageGenerationModel.from_pretrained("imagen-3.0-generate-002")
 
     images = model.generate_images(
         prompt=prompt,
@@ -45,7 +45,7 @@ generate_image(
     project_id='$ID',
     location='$REGION',
     output_file='image.jpeg',
-    prompt='Create an image of a cricket ground in the heart of Los Angeles',
+    prompt='Create an image containing a bouquet of 2 sunflowers and 3 roses',
     )
 
 EOF_END
@@ -75,7 +75,7 @@ def generate_text(project_id: str, location: str) -> str:
                 "gs://generativeai-downloads/images/scones.jpg", mime_type="image/jpeg"
             ),
             # Add an example query
-            "what is shown in this image?",
+            "Write a sweet birthday wish based on this bouquet image.?",
         ]
     )
 
